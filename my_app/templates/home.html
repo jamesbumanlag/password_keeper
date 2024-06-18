@@ -1,28 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %} Password Keeper {% endblock %}
+{% block title %} Home {% endblock %}
 
 {% block content %}
-            <h5 class="card-header">Password Keeper</h5>
-            <div class="card-body">
+<div class="col-md-6 offset-md-3 container">
+    
+  <br>
+  <br>
+  
+  <br><br>
 
-                <form>
-                    <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    
-                    <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        
+  <div class="card ">
+    <form>
+      <div class="card-header">
+       <h3>Select Account</h3> 
+       <br>
+       <select class="form-select" aria-label="Default select example">
+        <option selected>Open this select menu</option>
+        <option value="1">Google</option>
+        <option value="2">Youtube</option>
+        <option value="3">Facebook</option>
+      </select>
+      </div>
+    </form>
 
+  </div>
+</div>
 
-          
-       
 {% endblock %}

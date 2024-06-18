@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %} Reset {% endblock %}
+
+{% block content %}
+<div class="col-md-6 offset-md-3 container">
+  <br>
+  <br>
+  
+  <br><br>
+  <div class="card ">
+   
+
+    <form>
+      <div class="card-header">
+       <h3>Reset Password</h3> 
+      </div>
+
+      <br><br>
+      <div class="mb-3 container">
+        <label for="exampleInputUser1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleInputUser1" >
+      </div>
+
+      <div class="mb-3 container">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" >
+        
+      </div>
+
+        <div class="mb-3 container">
+        <label for="Sec_question1" class="form-label">Security Question 1
+        </label>
+        <input type="text" class="form-control" id="Sec_question1" >
+        </div>
+
+        <div class="mb-3 container">
+            <label for="answer" class="form-label">Answer
+            </label>
+            <input type="text" class="form-control" id="answer" >
+            </div>
+
+       
+
+
+      <div class="mb-3 container">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <br>
+      <div class="container">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      </div>
+      
+    
+<br><br>
+    </div>
+
+
+
+  </div>
+  <br>
+</div>
+{% endblock %}
