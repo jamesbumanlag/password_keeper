@@ -9,22 +9,32 @@
   <br>
   
   <br><br>
+  {% if user.is_authenticated %}
+    <div class="card ">
+      <form>
+        <div class="card-header">
+        <h3>Select Account</h3> 
+        <br>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Account</option>
+          <option value="1">Google</option>
+          <option value="2">Youtube</option>
+          <option value="3">Facebook</option>
+        </select>
+        <br>
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Person</option>
+          <option value="1">James Bumanlag</option>
+          <option value="2">Alona Ancayan</option>
+          <option value="3">Stephanie Bumanlag</option>
+        </select>
+        <br>
+        </div>
+      
+      </form>
 
-  <div class="card ">
-    <form>
-      <div class="card-header">
-       <h3>Select Account</h3> 
-       <br>
-       <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">Google</option>
-        <option value="2">Youtube</option>
-        <option value="3">Facebook</option>
-      </select>
-      </div>
-    </form>
-
-  </div>
+    </div>
+  {% endif %}
 </div>
 
 {% endblock %}
