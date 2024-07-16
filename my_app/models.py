@@ -13,7 +13,7 @@ class AccountsApp(models.Model):
     account_name = models.CharField(max_length=20)
 
     def __str__(self):
-        return(f'{self.person} {self.account_name} ')
+        return(f'{self.account_name} ')
     
 
 class PersonAccount(models.Model):
