@@ -29,12 +29,51 @@
           <option value="3">Stephanie Bumanlag</option>
         </select>
         <br>
+        <button type="submit" class="btn btn-dark" >submit</button>
+        <br>
+        <br>
         </div>
       
+        
       </form>
 
     </div>
   {% endif %}
+  <br><br>
+<h5>Accounts Table</h5>
+        
+        <table class="table table table-striped table-hover table-bordered">
+            
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Application</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Security Question</th>
+                        <th scope="col">Security Answer</th>
+                        <th scope="col">Date Modified</th>
+
+                      </tr>
+                    
+                </thead>
+
+                <tbody>
+                    {% if personal_care %}
+                        {% for person in personal_care %}
+                        <tr>
+                        
+                        <td>{{ person.person }}</td>
+                        <td>{{ person.bathing }}</td>
+                        <td>{{ person.dressing }}</td>
+                        <td>{{ person.toileting }}</td>
+                        <td>{{ person.date }}</td>
+                        <td>{{ person.time }}</td>
+                        </tr>
+                        {% endfor %}    
+                    {% endif %}
+                </tbody>
+                    
+        </table>
 </div>
 
 {% endblock %}
