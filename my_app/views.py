@@ -33,7 +33,7 @@ def register(request):
             messages.success(request,'Logged in Successfully')
             return redirect('home')
         else:
-            messages.success(request,'Login Failed')
+            messages.success(request,'Invalid Input')
             return render (request, 'login.html',{'form':form})
     else:
         form = SignUpForm() 
@@ -63,3 +63,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('login')
+
+
+def add(request):
+    return render(request, 'add_account.html',{})
