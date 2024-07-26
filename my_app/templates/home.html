@@ -11,7 +11,7 @@
   <br><br>
   {% if user.is_authenticated %}
     <div class="card ">
-      <form>
+      <form method="POST" action="">
         <div class="card-header">
         <h3>Select Account</h3> 
         <br>
@@ -48,9 +48,9 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Application</th>
+                        <th scope="col">Url</th>
                         <th scope="col">Password</th>
-                        <th scope="col">Security Question</th>
-                        <th scope="col">Security Answer</th>
+                        <th scope="col">Notes</th>
                         <th scope="col">Date Modified</th>
 
                       </tr>
@@ -58,22 +58,23 @@
                 </thead>
 
                 <tbody>
-                    {% if personal_care %}
-                        {% for person in personal_care %}
+                    {% if accounts %}
+                        {% for account in accounts %}
+
                         <tr>
-                        
-                        <td>{{ person.person }}</td>
-                        <td>{{ person.bathing }}</td>
-                        <td>{{ person.dressing }}</td>
-                        <td>{{ person.toileting }}</td>
-                        <td>{{ person.date }}</td>
-                        <td>{{ person.time }}</td>
+                        <td>{{ account.person }}</td>
+                        <td>{{ account.account_app }}</td>
+                        <td>{{ account.account_url }}</td>
+                        <td>{{ account.password }}</td>
+                        <td>{{ account.notes }}</td>
+                        <td>{{ account.created_at }}</td>
                         </tr>
+
                         {% endfor %}    
                     {% endif %}
                 </tbody>
                     
         </table>
 </div>
-
+<br><br>
 {% endblock %}

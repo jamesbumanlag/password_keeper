@@ -17,11 +17,14 @@ class AccountsApp(models.Model):
     
 
 class PersonAccount(models.Model):
+    
     person = models.ForeignKey(Person, on_delete=models.CASCADE, default=1, null=False, blank=False)
     account_app = models.ForeignKey(AccountsApp, on_delete=models.CASCADE, null=False, blank=False)
     account_url = models.URLField(max_length=50)
     password = models.CharField(max_length=20)
     notes = models.CharField(max_length=250)
+    created_at = models.DateTimeField(auto_now_add = True)
+
 
     def __str__(self):
         return(f'{self.person} {self.account_app}')

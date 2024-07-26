@@ -2,12 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
+from .forms import *
+from .models import *
 
 
 def home(request):
     if request.user.is_authenticated:
-        return render(request, 'home.html')
+        accounts = PersonAccount.objects.all()
+        return render(request, 'home.html',{'accounts':accounts})
     else:
         messages.success(request,'Not Authorized')
         return redirect('login')
@@ -43,7 +45,7 @@ def register(request):
 def login_user(request):
     if request.method == 'POST':
         username = request.POST['username']
-        password = request.POST['username']
+        password = request.POST['password']
 
         # Authenticate
         user = authenticate(request, username=username, password=password)
@@ -66,4 +68,19 @@ def logout_user(request):
 
 
 def add(request):
-    return render(request, 'add_account.html',{})
+    if request.user.is_authenticated:
+        person_form = PersonAccountModelForm(request.POST or None)
+        if request.method == 'POST':
+            if person_form.is_valid():
+                person_form.save()
+                messages.success(request, 'Record Saved')
+                return redirect('home')
+            else:
+                person_form = PersonAccountModelForm()
+                messages.success(request, 'Error! Invalid Input')
+                return render(request,'add_account.html', {'person_form':person_form})
+        return render(request,'add_account.html', {'person_form':person_form})
+    else:
+        
+        messages.success(request,'Invalid Access')
+        return redirect('login')
